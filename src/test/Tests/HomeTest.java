@@ -22,6 +22,4 @@ public class HomeTest extends BaseTest {
 
 }
 
-//  Verify all links on the homepage of the application are taken to the expected page
-//  by using the title of the target website.
-//  Requirement: Use data providers.
+

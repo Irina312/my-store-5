@@ -15,7 +15,5 @@ public class HomePage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(id = "linkText")
-    public WebElement allLinkBtn;
 
 }

@@ -3,6 +3,7 @@ package base;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -56,6 +57,12 @@ public class BasePage {
 
     public void moveIntoView(WebElement element) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    public void moveToMyElement(WebElement element) {
+        waitForElementVisibility(element);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).perform();
     }
 
     public void highlightElement(WebElement element) {

@@ -7,7 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import utils.SeleniumUtils;
 
 public class UserAccountTest extends BaseTest {
     UserAccountPage userAccountPage;
@@ -26,17 +25,22 @@ public class UserAccountTest extends BaseTest {
         data[3] = "My personal info";
         return data;
     }
-    @Test(testName = "Verify Account sections", dataProvider = "User account data")
-    public void test01(String myOrders, String creditSlips,
-                       String myAddresses, String personalInfo) {
-//        getDriver().findElement(By.cssSelector("//div[@class='block_content toggle-footer']")).click();
-//        String actualTitle = SeleniumUtils.switchToWindowAndVerifyTitle(getDriver());
+
+    @Test(testName = "Verify Account sections")
+    public void test01() {
+
         userAccountPage.myOrders.click();
+        Assert.assertTrue(getDriver().findElement(By.xpath("//span[@class='navigation_page']")).isDisplayed());
+
         userAccountPage.creditSlips.click();
+        Assert.assertTrue(getDriver().findElement(By.xpath("//span[@class='navigation_page']")).isDisplayed());
+
         userAccountPage.myAddresses.click();
+        Assert.assertTrue(getDriver().findElement(By.xpath("//span[@class='navigation_page']")).isDisplayed());
+
         userAccountPage.personalInfo.click();
         Assert.assertTrue(getDriver().findElement(By.xpath("//span[@class='navigation_page']")).isDisplayed());
 
-
     }
 }
+

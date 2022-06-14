@@ -18,7 +18,7 @@ public class UserAccountPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//div[@class='block_content toggle-footer']")
+    @FindBy(xpath = "//ul[@class='bullet']")
     public List<WebElement> userAcc;
 
     @FindBy(css = "a[title='My orders']")
@@ -32,4 +32,7 @@ public class UserAccountPage extends BasePage {
 
     @FindBy(css = "a[title='Manage my personal information']")
     public WebElement personalInfo;
+
+    @FindBy(xpath = "//span[@class='navigation_page']")
+    public WebElement loginPage;
 }
